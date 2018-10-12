@@ -1,0 +1,37 @@
+﻿@model System.DateTime
+
+@{
+    ViewData["Title"] = "Index";
+    DateTime endOfYear = new DateTime(@Model.Year, 12, 31);
+    double daysLeft = Math.Ceiling((endOfYear - @Model).TotalDays);
+}
+<body>
+    <div class="container">
+        <div class="jumbotron bg-primary">
+            <h2 id="header"></h2>
+        </div>
+    </div>
+    <div>
+        <h3>It is now @Model.ToShortTimeString() on @Model.ToLongDateString()</h3>
+        <p>There are @daysLeft days left in @Model.Year.</p>
+        <a href="https://localhost:44336/Lab4/Waffle" class="btn btn-warning">Generate Waffles</a>
+    </div>
+
+    <script>
+        function Greeting() {
+            var time = new Date().getHours();
+            var greeting;
+            if (time < 12) {
+                greeting = "Good Morning";
+            }
+            else if (time > 18) {
+                greeting = "Good Evening";
+            }
+            else {
+                greeting = "Good Afternoon";
+            }
+            return greeting;
+        }
+        document.getElementById("header").innerHTML = Greeting();
+    </script>
+</body>

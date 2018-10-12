@@ -1,0 +1,28 @@
+﻿@model Microsoft.AspNetCore.Html.HtmlString
+
+@{
+    ViewData["Title"] = "Waffle";
+}
+
+<div class="jumbotron p-3 mb-2 bg-dark text-white">
+    <h3>Generate Waffles</h3>
+</div>
+<main class="p-3">
+    <div class="inline-block">
+        <a class="btn btn-warning" role="button" href="https://localhost:44336/Lab4/Waffle/1">1</a>
+        <a class="btn btn-warning" role="button" href="https://localhost:44336/Lab4/Waffle/2">2</a>
+        <a class="btn btn-warning" role="button" href="https://localhost:44336/Lab4/Waffle/3">3</a>
+        <a class="btn btn-warning" role="button" href="https://localhost:44336/Lab4/Waffle/4">4</a>
+        <a class="btn btn-warning" role="button" href="https://localhost:44336/Lab4/Waffle/5">5</a>
+    </div>
+
+    @foreach (object x in Model) { 
+    <div class="panel panel-default">
+        <div id="waffles" class="panel-body">
+            document.getElementById("waffles").innerHTML = x
+        </div>
+    </div>
+    }
+
+
+</main>
